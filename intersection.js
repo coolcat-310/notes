@@ -57,6 +57,7 @@ function isValid(arrX,arrY){
         LaneX_westbound_error_outer: null,
         LaneX_eastbound_error_inner: null,
         LaneX_eastbound_error_outer: null,
+        count: 0
     };
     // focus on laneY  in the north direction
     const laneY_north_enter = {outer: arrY[0], inner: arrY[1]};
@@ -74,81 +75,69 @@ function isValid(arrX,arrY){
     const laneX_west_enter = {outer: arrX[4], inner: arrX[5]};
     const laneX_west_outer = {outer: arrX[6], inner: arrX[7]};
 
-    if(test_adjacentLane(laneY_north_enter)){
-        console.log('pass');
-    } else {
+    if(!test_adjacentLane(laneY_north_enter)){
         warning_messages.laneY_north_enter_error = 'Warning: Northbound Lanes Entering the Intersection may cause accidents.';
+        warning_messages.count++;
     }
 
-    if(test_adjacentLane(laneY_south_enter)){
-        console.log('pass');
-    } else {
+    if(!test_adjacentLane(laneY_south_enter)){
         warning_messages.laneY_south_enter_error = 'Warning: Southbound Lanes Entering the Intersection may cause accidents.';
+        warning_messages.count++;
     }
 
-    if(test_adjacentLane(laneX_east_enter)){
-        console.log('pass');
-    } else {
+    if(!test_adjacentLane(laneX_east_enter)){
         warning_messages.laneX_east_enter_error = 'Warning: Eastbound Lanes Entering the Intersection may cause accidents.';
+        warning_messages.count++;
     }
 
-    if(test_adjacentLane(laneX_west_enter)){
-        console.log('pass');
-    } else {
+    if(!test_adjacentLane(laneX_west_enter)){
         warning_messages.laneX_west_enter_error = 'Warning: Westbound Lanes Entering the Intersection may cause accidents.';
+        warning_messages.count++;
     }
 
     const north_accross = test_accrossLane(laneY_north_enter, laneY_north_outer);
+
+    if(!north_accross.inner){
+        warning_messages.LaneY_northbound_error_inner = 'Warning. Northbound Inner Lane is Close.';
+        warning_messages.count++;
+    }
+    if(!north_accross.outer){
+        warning_messages.LaneY_northbound_error_outer = 'Warning. Northbound Outer Lane is Close.';
+        warning_messages.count++;
+    }
+
     const south_accross = test_accrossLane(laneY_south_enter, laneY_south_outer);
 
+    if(!south_accross.inner){
+        warning_messages.LaneY_southbound_error_inner = 'Warning. Southbound Inner Lane is Close.';
+        warning_messages.count++;
+    }
+    if(!south_accross.outer){
+        warning_messages.LaneY_southbound_error_outer = 'Warning. Southbound Outer Lane is Close.';
+        warning_messages.count++;
+    }
+
     const east_accross = test_accrossLane(laneX_east_enter, laneX_east_outer);
+
+    if(!east_accross.inner){
+        warning_messages.LaneX_eastbound_error_inner = 'Warning. Eastbound Inner Lane is Close.';
+        warning_messages.count++;
+    }
+    if(!east_accross.outer){
+        warning_messages.LaneX_eastbound_error_outer = 'Warning. Eastbound Outer Lane is Close.';
+        warning_messages.count++;
+    }
+
     const west_accross = test_accrossLane(laneX_west_enter, laneX_west_outer);
 
-    if(north_accross.inner && north_accross.outer){
-        console.log('pass Inner')
-    }else{
-        if(!north_accross.inner){
-            warning_messages.LaneY_northbound_error_inner = 'Warning. Northbound Inner Lane is Close.';
-        }
-        if(!north_accross.outer){
-            warning_messages.LaneY_northbound_error_outer = 'Warning. Northbound Outer Lane is Close.';
-        }
-
+    if(!west_accross.inner){
+        warning_messages.LaneX_westbound_error_inner = 'Warning. Westbound Inner Lane is Close.';
+        warning_messages.count++;
     }
-    if(south_accross.inner && south_accross.outer){
-        console.log('pass Inner')
-    }else{
-        if(!south_accross.inner){
-            warning_messages.LaneY_southbound_error_inner = 'Warning. Southbound Inner Lane is Close.';
-        }
-        if(!south_accross.outer){
-            warning_messages.LaneY_southbound_error_outer = 'Warning. Southbound Outer Lane is Close.';
-        }
-
+    if(!west_accross.outer){
+        warning_messages.LaneX_westbound_error_outer = 'Warning. Westbound Outer Lane is Close.';
+        cwarning_messages.count++;
     }
-    if(east_accross.inner && east_accross.outer){
-        console.log('pass Inner')
-    }else{
-        if(!east_accross.inner){
-            warning_messages.LaneX_eastbound_error_inner = 'Warning. Eastbound Inner Lane is Close.';
-        }
-        if(!east_accross.outer){
-            warning_messages.LaneX_eastbound_error_outer = 'Warning. Eastbound Outer Lane is Close.';
-        }
-
-    }
-    if(west_accross.inner && west_accross.outer){
-        console.log('pass Inner')
-    }else{
-        if(!west_accross.inner){
-            warning_messages.LaneX_westbound_error_inner = 'Warning. Westbound Inner Lane is Close.';
-        }
-        if(!west_accross.outer){
-            warning_messages.LaneX_westbound_error_outer = 'Warning. Westbound Outer Lane is Close.';
-        }
-    }
-
-
 
     return warning_messages;
 }
@@ -197,6 +186,23 @@ function test_accrossLane(local, across){
 //
 // //console.log(i.toString());
 
-let j = new Intersection("b");
-console.log(j.toString());
-console.log(isValid(j.getLaneX(), j.getLaneY()));
+// let j = new Intersection("b");
+// console.log(j.toString());
+// console.log(isValid(j.getLaneX(), j.getLaneY()));
+// X: outerr, inner,  outer, inner
+//let k = new Intersection("c", [1,1, 0,1, 3,3, 1,1], [1,3, 1,1, 5,1,0,0]);
+let k = new Intersection("c", [1,3, 1,1, 5,1,0,0],[1,1, 0,1, 3,3, 1,1]);
+console.log(k.toString());
+console.log(isValid(k.getLaneX(), k.getLaneY()));
+
+let l = new Intersection("d", [2,3,1,1,5,3,0,0],[1,4,1,1,1,3,0,0]);
+console.log(l.toString());
+console.log(isValid(l.getLaneX(), l.getLaneY()));
+
+
+let m = new Intersection("e", [4,1,0,1,5,5,0,0],[2,3,1,1,1,1,1,1]);
+
+console.log(isValid(m.getLaneX(), m.getLaneY()));
+let ans = isValid(m.getLaneX(), m.getLaneY());
+m.setIsValid(ans.count === 0);
+console.log(m.toString());
