@@ -57,6 +57,7 @@ function isValid(arrX,arrY){
         LaneX_westbound_error_outer: null,
         LaneX_eastbound_error_inner: null,
         LaneX_eastbound_error_outer: null,
+        no_outlet: null,
         count: 0
     };
     // focus on laneY  in the north direction
@@ -75,6 +76,11 @@ function isValid(arrX,arrY){
     const laneX_west_enter = {outer: arrX[4], inner: arrX[5]};
     const laneX_west_outer = {outer: arrX[6], inner: arrX[7]};
 
+    if(noOutlet(arrX, arrY)){
+        warning_messages.no_outlet = 'Warning: No outlet in the Intersection';
+        warning_messages.count++;
+    }
+
     if(!test_adjacentLane(laneY_north_enter)){
         warning_messages.laneY_north_enter_error = 'Warning: Northbound Lanes Entering the Intersection may cause accidents.';
         warning_messages.count++;
@@ -86,12 +92,12 @@ function isValid(arrX,arrY){
     }
 
     if(!test_adjacentLane(laneX_east_enter)){
-        warning_messages.laneX_east_enter_error = 'Warning: Eastbound Lanes Entering the Intersection may cause accidents.';
+        warning_messages.laneX_east_enter_error = 'Warning: Westbound Lanes Entering the Intersection may cause accidents.';
         warning_messages.count++;
     }
 
     if(!test_adjacentLane(laneX_west_enter)){
-        warning_messages.laneX_west_enter_error = 'Warning: Westbound Lanes Entering the Intersection may cause accidents.';
+        warning_messages.laneX_west_enter_error = 'Warning: Eastbound Lanes Entering the Intersection may cause accidents.';
         warning_messages.count++;
     }
 
@@ -136,7 +142,7 @@ function isValid(arrX,arrY){
     }
     if(!west_accross.outer){
         warning_messages.LaneX_westbound_error_outer = 'Warning. Westbound Outer Lane is Close.';
-        cwarning_messages.count++;
+        warning_messages.count++;
     }
 
     return warning_messages;
@@ -177,7 +183,51 @@ function test_accrossLane(local, across){
     }
     return ans;
 }
+function noOutlet(arrX, arrY){
+    // If all outbound lanes are close and atleast one incoming lane is open
+    const isX = x => x === 0;
+    const add = (x, y) => x +y;
+    const sum = x => x.reduce(add);
+    const checkOutbound = [2,3,6,7];
+    const checkInbound = [0,1,4,5];
+    const validate = (x, f, g) => x.map(i =>f(g[i])? 1: 0);
 
+    const sumOutX = sum(validate(checkOutbound, isX, arrX));
+    const sumOutY = sum(validate(checkOutbound, isX, arrY));
+    const sumInX = sum(validate(checkInbound, isX, arrX));
+    const sumInY = sum(validate(checkInbound, isX, arrX));
+
+    return add(sumOutY, sumOutX) === 8 && add(sumInX, sumInY) < 8;
+}
+
+//Test case 1
+let a = new Intersection("case 1", [2,1,1,1,4,1,0,1],[1,3, 1,1,1,1,1,1]);
+
+console.log(isValid(a.getLaneX(), a.getLaneY()));
+let ansA = isValid( a.getLaneX(), a.getLaneY());
+a.setIsValid(ansA.count === 0);
+console.log(a.toString());
+
+let b = new Intersection("case 2", [2,2, 1,1,1,0,1,1],[1,1,0,1,1,3,1,1]);
+
+console.log(isValid(b.getLaneX(), b.getLaneY()));
+let ansB = isValid( b.getLaneX(), b.getLaneY());
+b.setIsValid(ansB.count === 0);
+console.log(b.toString());
+
+let c = new Intersection("case 3", [1,1,1,1,0,0,1,1],[4,4,1,1,1,4,1,1]);
+
+console.log(isValid(c.getLaneX(), c.getLaneY()));
+let ansC = isValid( c.getLaneX(), c.getLaneY());
+c.setIsValid(ansC.count === 0);
+console.log(c.toString());
+
+let d = new Intersection("case 4", [4,1,0,0,1,1,0,0],[1,1,0,0,1,1,0,0]);
+
+console.log(isValid(d.getLaneX(), d.getLaneY()));
+let ansD = isValid( d.getLaneX(), d.getLaneY());
+d.setIsValid(ansD.count === 0);
+console.log(d.toString());
 
 // let i = new Intersection('a', [1,2,3,4,5,6,7,8],[ 10, 11,12,13,14,15,16, 12]);
 // console.log(i.getName());
@@ -191,18 +241,26 @@ function test_accrossLane(local, across){
 // console.log(isValid(j.getLaneX(), j.getLaneY()));
 // X: outerr, inner,  outer, inner
 //let k = new Intersection("c", [1,1, 0,1, 3,3, 1,1], [1,3, 1,1, 5,1,0,0]);
-let k = new Intersection("c", [1,3, 1,1, 5,1,0,0],[1,1, 0,1, 3,3, 1,1]);
-console.log(k.toString());
-console.log(isValid(k.getLaneX(), k.getLaneY()));
-
-let l = new Intersection("d", [2,3,1,1,5,3,0,0],[1,4,1,1,1,3,0,0]);
-console.log(l.toString());
-console.log(isValid(l.getLaneX(), l.getLaneY()));
-
-
-let m = new Intersection("e", [4,1,0,1,5,5,0,0],[2,3,1,1,1,1,1,1]);
-
-console.log(isValid(m.getLaneX(), m.getLaneY()));
-let ans = isValid(m.getLaneX(), m.getLaneY());
-m.setIsValid(ans.count === 0);
-console.log(m.toString());
+// let k = new Intersection("c", [1,3, 1,1, 5,1,0,0],[1,1, 0,1, 3,3, 1,1]);
+// console.log(k.toString());
+// console.log(isValid(k.getLaneX(), k.getLaneY()));
+//
+// let l = new Intersection("d", [2,3,1,1,5,3,0,0],[1,4,1,1,1,3,0,0]);
+// console.log(isValid(l.getLaneX(), l.getLaneY()));
+// let ansl = isValid(l.getLaneX(), l.getLaneY());
+// l.setIsValid(ansl.count === 0);
+// console.log(l.toString());
+//
+// let m = new Intersection("e", [4,1,0,1,5,5,0,0],[2,3,1,1,1,1,1,1]);
+//
+// console.log(isValid(m.getLaneX(), m.getLaneY()));
+// let ans = isValid(m.getLaneX(), m.getLaneY());
+// m.setIsValid(ans.count === 0);
+// console.log(m.toString());
+//
+// let n = new Intersection("f", [1,1,0,0,3,3,0,0],[1,1,0,0,3,3,0,0]);
+//
+// console.log(isValid(n.getLaneX(), n.getLaneY()));
+// let ansn = isValid( n.getLaneX(), n.getLaneY());
+// n.setIsValid(ansn.count === 0);
+// console.log(n.toString());
