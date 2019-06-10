@@ -1,0 +1,687 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>Hello, world!</title>
+</head>
+<body>
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#northbound-enter-inner">Northbound-enter-inner</button>
+
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#northbound-enter-outer">Northbound-enter-outer</button>
+
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#southbound-enter-outer">Southbound-enter-outer</button>
+
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#southbound-enter-inner">Southbound-enter-inner</button>
+
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#westbound-enter-inner">Westbound-enter-inner</button>
+
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#westbound-enter-outer">Westbound-enter-outer</button>
+
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#eastbound-enter-inner">Eastbound-enter-inner</button>
+
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#eastbound-enter-outer">Eastbound-enter-outer</button>
+
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#eastbound-leave-outer">Eastbound-leave-outer</button>
+
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#eastbound-leave-inner">Eastbound-leave-outer</button>
+
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#westbound-leave-outer">Westbound-leave-outer</button>
+
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#westbound-leave-inner">Westbound-leave-inner</button>
+
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#northbound-leave-inner">Northbound-leave-inner</button>
+
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#northbound-leave-outer">Northbound-leave-outer</button>
+
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#southbound-leave-outer">Southbound-leave-outer</button>
+
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#southbound-leave-inner">Southbound-leave-inner</button>
+
+
+<button  type="button" class="btn btn-primary" name="submit" onclick="check([
+    {'className':'northbound-inner', 'form': form1},
+    {'className':'northbound-outer', 'form': form2},
+    {'className': 'southbound-outer', 'form': form3},
+    {'className': 'southbound-inner', 'form': form4},
+    {'className': 'westbound-inner', 'form': form5},
+    {'className': 'westbound-outer', 'form': form6},
+    {'className': 'eastbound-inner', 'form': form7},
+    {'className': 'eastbound-outer', 'form': form8},
+    {'className': 'eastbound-leave-outer', 'form': form9},
+    {'className': 'eastbound-leave-inner', 'form': form10},
+    {'className': 'westbound-leave-outer', 'form': form11},
+    {'className': 'westbound-leave-inner', 'form': form12},
+    {'className': 'northbound-leave-inner', 'form': form13},
+    {'className': 'northbound-leave-outer', 'form': form14},
+    {'className': 'southbound-leave-outer', 'form': form15},
+    {'className': 'southbound-leave-inner', 'form': form16}])">Submit</button>
+
+<div class="modal fade" id="southbound-enter-inner" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel4">Select Option</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="container">
+                    <div class="form-group form-check-inline" id="form4">
+                        <div class="form-group form-check">
+                            <img src="southbound-right.png" alt="arrow" height="42" width="42">
+                            <input name="southbound-inner" type="radio" class="form-check-input" id="southbound-right" style="margin-left: 10px" value="4">
+                        </div>
+                        <div class="form-group form-check">
+                            <img src="southbound-left.png" alt="arrow" height="42" width="42">
+                            <input name="southbound-inner" type="radio" class="form-check-input" id="southbound-left" style="margin-left: 11px" value="5">
+                        </div>
+                        <div class="form-group form-check">
+                            <img src="southbound-straight.png" alt="arrow" height="42" width="42">
+                            <input name="southbound-inner" type="radio" class="form-check-input" id="southbound-straight" style="margin-left: 12px" value="1">
+                        </div>
+                        <div class="form-group form-check">
+                            <img src="southbound-straight-right.png" alt="arrow" height="42" width="42">
+                            <input name="southbound-inner" type="radio" class="form-check-input" id="southbound-straight-right" style="margin-left: 10px" value="2">
+                        </div>
+                        <div class="form-group form-check">
+                            <img src="southbound-straight-left.png" alt="arrow" height="42" width="42">
+                            <input name="southbound-inner" type="radio" class="form-check-input" id="southbound-straight-left" style="margin-left: 10px" value="3" checked="checked">
+                        </div>
+                        <div class="form-group form-check">
+                            <img src="close.png" alt="arrow" height="42" width="42">
+                            <input name="southbound-inner" type="radio" class="form-check-input" id="southbound-close" style="margin-left: 10px" value="0">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="displayResult(form4, 'southbound-inner')">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="southbound-enter-outer" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel3">Select Option</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="container">
+                    <div class="form-group form-check-inline" id="form3">
+                        <div class="form-group form-check">
+                            <img src="southbound-right.png" alt="arrow" height="42" width="42">
+                            <input name="southbound-outer" type="radio" class="form-check-input" id="southbound-right-outer" style="margin-left: 10px" value="4">
+                        </div>
+                        <div class="form-group form-check">
+                            <img src="southbound-left.png" alt="arrow" height="42" width="42">
+                            <input name="southbound-outer" type="radio" class="form-check-input" id="southbound-left-outer" style="margin-left: 11px" value="5">
+                        </div>
+                        <div class="form-group form-check">
+                            <img src="southbound-straight.png" alt="arrow" height="42" width="42">
+                            <input name="southbound-outer" type="radio" class="form-check-input" id="southbound-straight-outer" style="margin-left: 12px" value="1">
+                        </div>
+                        <div class="form-group form-check">
+                            <img src="southbound-straight-right.png" alt="arrow" height="42" width="42">
+                            <input name="southbound-outer" type="radio" class="form-check-input" id="southbound-straight-right-outer" style="margin-left: 10px" checked="checked" value="2">
+                        </div>
+                        <div class="form-group form-check">
+                            <img src="southbound-straight-left.png" alt="arrow" height="42" width="42">
+                            <input name="southbound-outer" type="radio" class="form-check-input" id="southbound-straight-left-outer" style="margin-left: 10px" value="3">
+                        </div>
+                        <div class="form-group form-check">
+                            <img src="close.png" alt="arrow" height="42" width="42">
+                            <input name="southbound-outer" type="radio" class="form-check-input" id="southbound-close-outer" style="margin-left: 10px" value="0">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="displayResult(form3, 'southbound-outer')">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="northbound-enter-outer" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel2">Select Option</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="container">
+                    <div class="form-group form-check-inline" id="form2">
+                        <div class="form-group form-check">
+                            <img src="northbound-right.png" alt="arrow" height="42" width="42">
+                            <input name="northbound-outer" type="radio" class="form-check-input" id="northbound-right-outer" style="margin-left: 10px" value="4">
+                        </div>
+                        <div class="form-group form-check">
+                            <img src="northbound-left.png" alt="arrow" height="42" width="42">
+                            <input name="northbound-outer" type="radio" class="form-check-input" id="northbound-left-outer" style="margin-left: 11px" value="5">
+                        </div>
+                        <div class="form-group form-check">
+                            <img src="northbound-straight.png" alt="arrow" height="42" width="42">
+                            <input name="northbound-outer" type="radio" class="form-check-input" id="northbound-straight-outer" style="margin-left: 12px" value="1">
+                        </div>
+                        <div class="form-group form-check">
+                            <img src="northbound-straight-right.png" alt="arrow" height="42" width="42">
+                            <input name="northbound-outer" type="radio" class="form-check-input" id="northbound-straight-right-outer" style="margin-left: 10px" checked="checked" value="2">
+                        </div>
+                        <div class="form-group form-check">
+                            <img src="northbound-straight-left.png" alt="arrow" height="42" width="42">
+                            <input name="northbound-outer" type="radio" class="form-check-input" id="northbound-straight-left-outer" style="margin-left: 10px" value="3">
+                        </div>
+                        <div class="form-group form-check">
+                            <img src="close.png" alt="arrow" height="42" width="42">
+                            <input name="northbound-outer" type="radio" class="form-check-input" id="northbound-close-outer" style="margin-left: 10px" value="0">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="displayResult(form2, 'northbound-outer')">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="northbound-enter-inner" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Select Option</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="container">
+                    <div class="form-group form-check-inline" id="form1">
+                        <div class="form-group form-check">
+                            <img src="northbound-right.png" alt="arrow" height="42" width="42">
+                            <input name="northbound-inner" type="radio" class="form-check-input" id="northbound-right" style="margin-left: 10px" value="4">
+                        </div>
+                        <div class="form-group form-check">
+                            <img src="northbound-left.png" alt="arrow" height="42" width="42">
+                            <input name="northbound-inner" type="radio" class="form-check-input" id="northbound-left" style="margin-left: 11px" value="5">
+                        </div>
+                        <div class="form-group form-check">
+                            <img src="northbound-straight.png" alt="arrow" height="42" width="42">
+                            <input name="northbound-inner" type="radio" class="form-check-input" id="northbound-straight" style="margin-left: 12px" value="1">
+                        </div>
+                        <div class="form-group form-check">
+                            <img src="northbound-straight-right.png" alt="arrow" height="42" width="42">
+                            <input name="northbound-inner" type="radio" class="form-check-input" id="northbound-straight-right" style="margin-left: 10px" value="2">
+                        </div>
+                        <div class="form-group form-check">
+                            <img src="northbound-straight-left.png" alt="arrow" height="42" width="42">
+                            <input name="northbound-inner" type="radio" class="form-check-input" id="northbound-straight-left" style="margin-left: 10px" value="3" checked="checked">
+                        </div>
+                       <div class="form-group form-check">
+                            <img src="close.png" alt="arrow" height="42" width="42">
+                            <input name="northbound-inner" type="radio" class="form-check-input" id="northbound-close" style="margin-left: 10px" value="0">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="displayResult(form1, 'northbound-inner')">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="westbound-enter-inner" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel5">Select Option</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="container">
+                    <div class="form-group form-check-inline" id="form5">
+                        <div class="form-group form-check">
+                            <img src="westbound-right.png" alt="arrow" height="42" width="42">
+                            <input name="westbound-inner" type="radio" class="form-check-input" id="westbound-right" style="margin-left: 10px" value="4">
+                        </div>
+                        <div class="form-group form-check">
+                            <img src="westbound-left.png" alt="arrow" height="42" width="42">
+                            <input name="westbound-inner" type="radio" class="form-check-input" id="westbound-left" style="margin-left: 11px" value="5">
+                        </div>
+                        <div class="form-group form-check">
+                            <img src="westbound-straight.png" alt="arrow" height="42" width="42">
+                            <input name="westbound-inner" type="radio" class="form-check-input" id="westbound-straight" style="margin-left: 12px" value="1">
+                        </div>
+                        <div class="form-group form-check">
+                            <img src="westbound-straight-right.png" alt="arrow" height="42" width="42">
+                            <input name="westbound-inner" type="radio" class="form-check-input" id="westbound-straight-right" style="margin-left: 10px" value="2">
+                        </div>
+                        <div class="form-group form-check">
+                            <img src="westbound-straight-left.png" alt="arrow" height="42" width="42">
+                            <input name="westbound-inner" type="radio" class="form-check-input" id="westbound-straight-left" style="margin-left: 10px" value="3" checked="checked">
+                        </div>
+                        <div class="form-group form-check">
+                            <img src="close.png" alt="arrow" height="42" width="42">
+                            <input name="westbound-inner" type="radio" class="form-check-input" id="westbound-close" style="margin-left: 10px" value="0">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="displayResult(form5, 'westbound-inner')">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="westbound-enter-outer" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel6">Select Option</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="container">
+                    <div class="form-group form-check-inline" id="form6">
+                        <div class="form-group form-check">
+                            <img src="westbound-right.png" alt="arrow" height="42" width="42">
+                            <input name="westbound-outer" type="radio" class="form-check-input" id="westbound-right-outer" style="margin-left: 10px" value="4">
+                        </div>
+                        <div class="form-group form-check">
+                            <img src="westbound-left.png" alt="arrow" height="42" width="42">
+                            <input name="westbound-outer" type="radio" class="form-check-input" id="westbound-left-outer" style="margin-left: 11px" value="5">
+                        </div>
+                        <div class="form-group form-check">
+                            <img src="westbound-straight.png" alt="arrow" height="42" width="42">
+                            <input name="westbound-outer" type="radio" class="form-check-input" id="westbound-straight-outer" style="margin-left: 12px" value="1">
+                        </div>
+                        <div class="form-group form-check">
+                            <img src="westbound-straight-right.png" alt="arrow" height="42" width="42">
+                            <input name="westbound-outer" type="radio" class="form-check-input" id="westbound-straight-right-outer" style="margin-left: 10px" checked="checked" value="2">
+                        </div>
+                        <div class="form-group form-check">
+                            <img src="westbound-straight-left.png" alt="arrow" height="42" width="42">
+                            <input name="westbound-outer" type="radio" class="form-check-input" id="westbound-straight-left-outer" style="margin-left: 10px" value="3">
+                        </div>
+                        <div class="form-group form-check">
+                            <img src="close.png" alt="arrow" height="42" width="42">
+                            <input name="westbound-outer" type="radio" class="form-check-input" id="westbound-close-outer" style="margin-left: 10px" value="0">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="displayResult(form6, 'westbound-outer')">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="eastbound-enter-inner" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel7">Select Option</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="container">
+                    <div class="form-group form-check-inline" id="form7">
+                        <div class="form-group form-check">
+                            <img src="eastbound-right.png" alt="arrow" height="42" width="42">
+                            <input name="eastbound-inner" type="radio" class="form-check-input" id="eastbound-right" style="margin-left: 10px" value="4">
+                        </div>
+                        <div class="form-group form-check">
+                            <img src="eastbound-left.png" alt="arrow" height="42" width="42">
+                            <input name="eastbound-inner" type="radio" class="form-check-input" id="eastbound-left" style="margin-left: 11px" value="5">
+                        </div>
+                        <div class="form-group form-check">
+                            <img src="eastbound-straight.png" alt="arrow" height="42" width="42">
+                            <input name="eastbound-inner" type="radio" class="form-check-input" id="eastbound-straight" style="margin-left: 12px" value="1">
+                        </div>
+                        <div class="form-group form-check">
+                            <img src="eastbound-straight-right.png" alt="arrow" height="42" width="42">
+                            <input name="eastbound-inner" type="radio" class="form-check-input" id="eastbound-straight-right" style="margin-left: 10px" value="2">
+                        </div>
+                        <div class="form-group form-check">
+                            <img src="eastbound-straight-left.png" alt="arrow" height="42" width="42">
+                            <input name="eastbound-inner" type="radio" class="form-check-input" id="eastbound-straight-left" style="margin-left: 10px" value="3" checked="checked">
+                        </div>
+                        <div class="form-group form-check">
+                            <img src="close.png" alt="arrow" height="42" width="42">
+                            <input name="eastbound-inner" type="radio" class="form-check-input" id="eastbound-close" style="margin-left: 10px" value="0">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="displayResult(form7, 'eastbound-inner')">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="eastbound-enter-outer" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel8">Select Option</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="container">
+                    <div class="form-group form-check-inline" id="form8">
+                        <div class="form-group form-check">
+                            <img src="eastbound-right.png" alt="arrow" height="42" width="42">
+                            <input name="eastbound-outer" type="radio" class="form-check-input" id="eastbound-right-outer" style="margin-left: 10px" value="4">
+                        </div>
+                        <div class="form-group form-check">
+                            <img src="eastbound-left.png" alt="arrow" height="42" width="42">
+                            <input name="eastbound-outer" type="radio" class="form-check-input" id="eastbound-left-outer" style="margin-left: 11px" value="5">
+                        </div>
+                        <div class="form-group form-check">
+                            <img src="eastbound-straight.png" alt="arrow" height="42" width="42">
+                            <input name="eastbound-outer" type="radio" class="form-check-input" id="eastbound-straight-outer" style="margin-left: 12px" value="1">
+                        </div>
+                        <div class="form-group form-check">
+                            <img src="eastbound-straight-right.png" alt="arrow" height="42" width="42">
+                            <input name="eastbound-outer" type="radio" class="form-check-input" id="eastbound-straight-right-outer" style="margin-left: 10px" checked="checked" value="2">
+                        </div>
+                        <div class="form-group form-check">
+                            <img src="eastbound-straight-left.png" alt="arrow" height="42" width="42">
+                            <input name="eastbound-outer" type="radio" class="form-check-input" id="eastbound-straight-left-outer" style="margin-left: 10px" value="3">
+                        </div>
+                        <div class="form-group form-check">
+                            <img src="close.png" alt="arrow" height="42" width="42">
+                            <input name="eastbound-outer" type="radio" class="form-check-input" id="eastbound-close-outer" style="margin-left: 10px" value="0">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="displayResult(form8, 'eastbound-outer')">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="eastbound-leave-outer" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel9">Select Option</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="container">
+                    <div class="form-group form-check-inline" id="form9">
+                        <div class="form-group form-check">
+                            <img src="eastbound-straight.png" alt="arrow" height="42" width="42">
+                            <input name="eastbound-leave-outer" type="radio" class="form-check-input" id="eastbound-straight-outer-outer" style="margin-left: 12px" value="1" checked="checked">
+                        </div>
+                        <div class="form-group form-check">
+                            <img src="close.png" alt="arrow" height="42" width="42">
+                            <input name="eastbound-leave-outer" type="radio" class="form-check-input" id="eastbound-close-outer-outer" style="margin-left: 10px" value="0">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="displayResult(form9, 'eastbound-leave-outer')">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="eastbound-leave-inner" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel10">Select Option</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="container">
+                    <div class="form-group form-check-inline" id="form10">
+                        <div class="form-group form-check">
+                            <img src="eastbound-straight.png" alt="arrow" height="42" width="42">
+                            <input name="eastbound-leave-inner" type="radio" class="form-check-input" id="eastbound-straight-outer-leave" style="margin-left: 12px" value="1" checked="checked">
+                        </div>
+                        <div class="form-group form-check">
+                            <img src="close.png" alt="arrow" height="42" width="42">
+                            <input name="eastbound-leave-inner" type="radio" class="form-check-input" id="eastbound-close-outer-leave" style="margin-left: 10px" value="0">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="displayResult(form10, 'eastbound-leave-inner')">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="westbound-leave-outer" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel11">Select Option</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="container">
+                    <div class="form-group form-check-inline" id="form11">
+                        <div class="form-group form-check">
+                            <img src="westbound-straight.png" alt="arrow" height="42" width="42">
+                            <input name="westbound-leave-outer" type="radio" class="form-check-input" id="westbound-straight-outer-leave" style="margin-left: 12px" value="1" checked="checked">
+                        </div>
+
+                        <div class="form-group form-check">
+                            <img src="close.png" alt="arrow" height="42" width="42">
+                            <input name="westbound-leave-outer" type="radio" class="form-check-input" id="westbound-close-outer-leave" style="margin-left: 10px" value="0">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="displayResult(form11, 'westbound-leave-outer')">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="westbound-leave-inner" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel12">Select Option</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="container">
+                    <div class="form-group form-check-inline" id="form12">
+                        <div class="form-group form-check">
+                            <img src="westbound-straight.png" alt="arrow" height="42" width="42">
+                            <input name="westbound-leave-inner" type="radio" class="form-check-input" id="westbound-leave-straight" style="margin-left: 12px" value="1" checked="checked">
+                        </div>
+                        <div class="form-group form-check">
+                            <img src="close.png" alt="arrow" height="42" width="42">
+                            <input name="westbound-leave-inner" type="radio" class="form-check-input" id="westbound-leave-close" style="margin-left: 10px" value="0">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="displayResult(form12, 'westbound-leave-inner')">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="northbound-leave-inner" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel13">Select Option</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="container">
+                    <div class="form-group form-check-inline" id="form13">
+
+                        <div class="form-group form-check">
+                            <img src="northbound-straight.png" alt="arrow" height="42" width="42">
+                            <input name="northbound-leave-inner" type="radio" class="form-check-input" id="northbound-straight-leave" style="margin-left: 12px" value="1" checked="checked">
+                        </div>
+
+                        <div class="form-group form-check">
+                            <img src="close.png" alt="arrow" height="42" width="42">
+                            <input name="northbound-leave-inner" type="radio" class="form-check-input" id="northbound-close-leave" style="margin-left: 10px" value="0">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="displayResult(form13, 'northbound-leave-inner')">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="northbound-leave-outer" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel14">Select Option</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="container">
+                    <div class="form-group form-check-inline" id="form14">
+                        <div class="form-group form-check">
+                            <img src="northbound-straight.png" alt="arrow" height="42" width="42">
+                            <input name="northbound-leave-outer" type="radio" class="form-check-input" id="northbound-straight-outer-leave" style="margin-left: 12px" value="1" checked="checked">
+                        </div>
+                        <div class="form-group form-check">
+                            <img src="close.png" alt="arrow" height="42" width="42">
+                            <input name="northbound-leave-outer" type="radio" class="form-check-input" id="northbound-close-outer-leave" style="margin-left: 10px" value="0">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="displayResult(form14, 'northbound-leave-outer')">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="southbound-leave-outer" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel15">Select Option</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="container">
+                    <div class="form-group form-check-inline" id="form15">
+                        <div class="form-group form-check">
+                            <img src="southbound-straight.png" alt="arrow" height="42" width="42">
+                            <input name="southbound-leave-outer" type="radio" class="form-check-input" id="southbound-straight-outer-leave" style="margin-left: 12px" value="1" checked="checked">
+                        </div>
+                        <div class="form-group form-check">
+                            <img src="close.png" alt="arrow" height="42" width="42">
+                            <input name="southbound-leave-outer" type="radio" class="form-check-input" id="southbound-close-outer-leave" style="margin-left: 10px" value="0">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="displayResult(form15, 'southbound-leave-outer')">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="southbound-leave-inner" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel16">Select Option</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="container">
+                    <div class="form-group form-check-inline" id="form16">
+                        <div class="form-group form-check">
+                            <img src="southbound-straight.png" alt="arrow" height="42" width="42">
+                            <input name="southbound-leave-inner" type="radio" class="form-check-input" id="southbound-straight-leave" style="margin-left: 12px" value="1" checked="checked">
+                        </div>
+                        <div class="form-group form-check">
+                            <img src="close.png" alt="arrow" height="42" width="42">
+                            <input name="southbound-leave-inner" type="radio" class="form-check-input" id="southbound-close-leave" style="margin-left: 10px" value="0">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="displayResult(form16, 'southbound-leave-inner')">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="source.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>
