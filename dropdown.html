@@ -14,36 +14,52 @@
 
 <!-- Button trigger modal -->
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#northbound-enter-inner">Northbound-enter-inner</button>
+<input type="image" src="northbound-straight-left.png" name="saveForm" class="btTxt submit" data-toggle="modal" data-target="#northbound-enter-inner" id="image1" width="42" height="42"/>
 
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#northbound-enter-outer">Northbound-enter-outer</button>
+<input type="image" src="northbound-straight-right.png" name="saveForm" class="btTxt submit" data-toggle="modal" data-target="#northbound-enter-outer" id="image2" width="42" height="42"/>
 
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#southbound-enter-outer">Southbound-enter-outer</button>
+<input type="image" src="southbound-straight-right.png" name="saveForm" class="btTxt submit" data-toggle="modal" data-target="#southbound-enter-outer" id="image3" width="42" height="42"/>
 
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#southbound-enter-inner">Southbound-enter-inner</button>
+<input type="image" src="southbound-straight-left.png" name="saveForm" class="btTxt submit" data-toggle="modal" data-target="#southbound-enter-inner" id="image4" width="42" height="42"/>
 
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#westbound-enter-inner">Westbound-enter-inner</button>
+<input type="image" src="westbound-straight-left.png" name="saveForm" class="btTxt submit" data-toggle="modal" data-target="#westbound-enter-inner" id="image5" width="42" height="42"/>
 
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#westbound-enter-outer">Westbound-enter-outer</button>
+<input type="image" src="westbound-straight-right.png" name="saveForm" class="btTxt submit" data-toggle="modal" data-target="#westbound-enter-outer" id="image6" width="42" height="42"/>
 
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#eastbound-enter-inner">Eastbound-enter-inner</button>
+<input type="image" src="eastbound-straight-left.png" name="saveForm" class="btTxt submit" data-toggle="modal" data-target="#eastbound-enter-inner" id="image7" width="42" height="42"/>
 
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#eastbound-enter-outer">Eastbound-enter-outer</button>
+<input type="image" src="eastbound-straight-right.png" name="saveForm" class="btTxt submit" data-toggle="modal" data-target="#eastbound-enter-outer" id="image8" width="42" height="42"/>
 
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#eastbound-leave-outer">Eastbound-leave-outer</button>
+<input type="image" src="eastbound-straight.png" name="saveForm" class="btTxt submit" data-toggle="modal" data-target="#eastbound-leave-outer" id="image9" width="42" height="42"/>
 
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#eastbound-leave-inner">Eastbound-leave-outer</button>
+<input type="image" src="eastbound-straight.png" name="saveForm" class="btTxt submit" data-toggle="modal" data-target="#eastbound-leave-inner" id="image10" width="42" height="42"/>
 
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#westbound-leave-outer">Westbound-leave-outer</button>
+<input type="image" src="westbound-straight.png" name="saveForm" class="btTxt submit" data-toggle="modal" data-target="#westbound-leave-outer" id="image11" width="42" height="42"/>
 
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#westbound-leave-inner">Westbound-leave-inner</button>
+<input type="image" src="westbound-straight.png" name="saveForm" class="btTxt submit" data-toggle="modal" data-target="#westbound-leave-inner" id="image12" width="42" height="42"/>
 
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#northbound-leave-inner">Northbound-leave-inner</button>
+<input type="image" src="northbound-straight.png" name="saveForm" class="btTxt submit" data-toggle="modal" data-target="#northbound-leave-inner" id="image13" width="42" height="42"/>
 
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#northbound-leave-outer">Northbound-leave-outer</button>
+<input type="image" src="northbound-straight.png" name="saveForm" class="btTxt submit" data-toggle="modal" data-target="#northbound-leave-outer" id="image14" width="42" height="42"/>
 
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#southbound-leave-outer">Southbound-leave-outer</button>
+<input type="image" src="southbound-straight.png" name="saveForm" class="btTxt submit" data-toggle="modal" data-target="#southbound-leave-outer" id="image15" width="42" height="42"/>
 
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#southbound-leave-inner">Southbound-leave-inner</button>
+<input type="image" src="southbound-straight.png" name="saveForm" class="btTxt submit" data-toggle="modal" data-target="#southbound-leave-inner" id="image16" width="42" height="42"/>
 
 
 <button  type="button" class="btn btn-primary" name="submit" onclick="check([
@@ -104,7 +120,7 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="displayResult(form4, 'southbound-inner')">Save changes</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="displayResult(form4, 'southbound-inner', 'image4')">Save changes</button>
             </div>
         </div>
     </div>
@@ -150,7 +166,7 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="displayResult(form3, 'southbound-outer')">Save changes</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="displayResult(form3, 'southbound-outer', 'image3')">Save changes</button>
             </div>
         </div>
     </div>
@@ -196,7 +212,7 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="displayResult(form2, 'northbound-outer')">Save changes</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="displayResult(form2, 'northbound-outer', 'image2')">Save changes</button>
             </div>
         </div>
     </div>
@@ -242,7 +258,7 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="displayResult(form1, 'northbound-inner')">Save changes</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="displayResult(form1, 'northbound-inner', 'image1')">Save changes</button>
             </div>
         </div>
     </div>
@@ -288,7 +304,7 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="displayResult(form5, 'westbound-inner')">Save changes</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="displayResult(form5, 'westbound-inner', 'image5')">Save changes</button>
             </div>
         </div>
     </div>
@@ -334,7 +350,7 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="displayResult(form6, 'westbound-outer')">Save changes</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="displayResult(form6, 'westbound-outer', 'image6')">Save changes</button>
             </div>
         </div>
     </div>
@@ -380,7 +396,7 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="displayResult(form7, 'eastbound-inner')">Save changes</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="displayResult(form7, 'eastbound-inner', 'image7')">Save changes</button>
             </div>
         </div>
     </div>
@@ -426,7 +442,7 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="displayResult(form8, 'eastbound-outer')">Save changes</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="displayResult(form8, 'eastbound-outer', 'image8')">Save changes</button>
             </div>
         </div>
     </div>
@@ -456,7 +472,7 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="displayResult(form9, 'eastbound-leave-outer')">Save changes</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="displayResult(form9, 'eastbound-leave-outer', 'image9')">Save changes</button>
             </div>
         </div>
     </div>
@@ -486,7 +502,7 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="displayResult(form10, 'eastbound-leave-inner')">Save changes</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="displayResult(form10, 'eastbound-leave-inner', 'image10')">Save changes</button>
             </div>
         </div>
     </div>
@@ -517,7 +533,7 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="displayResult(form11, 'westbound-leave-outer')">Save changes</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="displayResult(form11, 'westbound-leave-outer', 'image11')">Save changes</button>
             </div>
         </div>
     </div>
@@ -547,7 +563,7 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="displayResult(form12, 'westbound-leave-inner')">Save changes</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="displayResult(form12, 'westbound-leave-inner', 'image12')">Save changes</button>
             </div>
         </div>
     </div>
@@ -579,7 +595,7 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="displayResult(form13, 'northbound-leave-inner')">Save changes</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="displayResult(form13, 'northbound-leave-inner', 'image13')">Save changes</button>
             </div>
         </div>
     </div>
@@ -609,7 +625,7 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="displayResult(form14, 'northbound-leave-outer')">Save changes</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="displayResult(form14, 'northbound-leave-outer', 'image14')">Save changes</button>
             </div>
         </div>
     </div>
@@ -639,7 +655,7 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="displayResult(form15, 'southbound-leave-outer')">Save changes</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="displayResult(form15, 'southbound-leave-outer', 'image15')">Save changes</button>
             </div>
         </div>
     </div>
@@ -669,7 +685,7 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="displayResult(form16, 'southbound-leave-inner')">Save changes</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="displayResult(form16, 'southbound-leave-inner', 'image16')">Save changes</button>
             </div>
         </div>
     </div>

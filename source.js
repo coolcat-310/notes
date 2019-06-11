@@ -67,14 +67,127 @@ function check(arrform){
     console.log(arrY);
 
     console.log(isValid(arrX, arrY));
+}
 
-};
-
-function displayResult(form, className){
+function displayResult(form, className, id='none'){
     console.log('button is click');
     const str = `input[name=${className}]:checked`;
-    let ans = $(str, form).val();
-    console.log(`${className}: ${ans}`);
+    let option = parseInt($(str, form).val());
+    console.log(`${className}: ${option}`);
+    //let source = getImageSource(className, parseInt(ans));
+
+    switch(className){
+        case 'northbound-outer': case 'northbound-inner':
+            if(option === 0){
+                $("#"+id).attr({"src": "close.png"});
+            } else if(option === 1){
+                $("#"+id).attr({"src": "northbound-straight.png"});
+            } else if(option === 2){
+                $("#"+id).attr({"src": "northbound-straight-right.png"});
+            } else if(option === 3){
+                $("#"+id).attr({"src": "northbound-straight-left.png"});
+            } else if(option === 4){
+                $("#"+id).attr({"src": "northbound-right.png"});
+            } else if(option === 5){
+                $("#"+id).attr({"src": "northbound-left.png"});
+            }
+            break;
+        case 'northbound-leave-outer':
+        case 'northbound-leave-inner':
+            console.log('northbound-leave-inner/outer');
+            if(option === 0){
+                $("#"+id).attr({"src": "close.png"});
+            } else if(option === 1){
+                $("#"+id).attr({"src": "northbound-straight.png"});
+            }
+            break;
+        case 'southbound-outer':
+        case 'southbound-inner':
+
+            if(option === 0){
+                $("#"+id).attr({"src": "close.png"});
+            } else if(option === 1){
+                $("#"+id).attr({"src": "southbound-straight.png"});
+            } else if(option === 2){
+                $("#"+id).attr({"src": "southbound-straight-right.png"});
+            } else if(option === 3){
+                $("#"+id).attr({"src": "southbound-straight-left.png"});
+            } else if(option === 4){
+                $("#"+id).attr({"src": "southbound-right.png"});
+            } else if(option === 5){
+                $("#"+id).attr({"src": "southbound-left.png"});
+            }
+                break;
+        case 'southbound-leave-outer':
+        case 'southbound-leave-inner':
+            console.log('southbound-leave-inner/outer');
+            if(option === 0){
+                $("#"+id).attr({"src": "close.png"});
+            } else if(option === 1){
+                //return 'southbound-straight.png';
+                $("#"+id).attr({"src": "southbound-straight.png"});
+            }
+
+            break;
+        case 'westbound-outer':
+        case 'westbound-inner':
+
+            if(option === 0){
+                $("#"+id).attr({"src": "close.png"});
+            } else if(option === 1){
+                $("#"+id).attr({"src": "westbound-straight.png"});
+            } else if(option === 2){
+                $("#"+id).attr({"src": "westbound-straight-right.png"});
+            } else if(option === 3){
+                $("#"+id).attr({"src": "westbound-straight-left.png"});
+            } else if(option === 4){
+                $("#"+id).attr({"src": "westbound-right.png"});
+
+            } else if(option === 5){
+                $("#"+id).attr({"src": "westbound-left.png"});
+            }
+            break;
+        case 'westbound-leave-outer':
+        case 'westbound-leave-inner':
+            if(option === 0){
+                $("#"+id).attr({"src": "close.png"});
+            } else if(option === 1){
+                $("#"+id).attr({"src": "westbound-straight.png"});
+            }
+            break;
+        case 'eastbound-outer':
+        case 'eastbound-inner':
+            if(option === 0){
+                $("#"+id).attr({"src": "close.png"});
+            } else if(option === 1){
+                $("#"+id).attr({"src": "eastbound-straight.png"});
+            } else if(option === 2){
+                $("#"+id).attr({"src": "eastbound-straight-right.png"});
+            } else if(option === 3){
+                $("#"+id).attr({"src": "eastbound-straight-left.png"});
+            } else if(option === 4){
+                $("#"+id).attr({"src": "eastbound-right.png"});
+
+            } else if(option === 5){
+                $("#"+id).attr({"src": "eastbound-left.png"});
+            }
+            break;
+        case 'eastbound-leave-outer':
+        case 'eastbound-leave-inner':
+            console.log('eastbound-leave-outer/inner');
+            if(option === 0){
+                console.log('inside close');
+                $("#"+id).attr({"src": "close.png"});
+            } else if(option === 1){
+                console.log('inside straight');
+                $("#"+id).attr({"src": "eastbound-straight.png"});
+            }
+            break;
+        default:
+            break;
+    }
+
+    //$("#image1").attr({"src":source});
 }
 
 function isValid(arrX,arrY){
@@ -233,6 +346,82 @@ function noOutlet(arrX, arrY){
     const sumInY = sum(validate(checkInbound, isX, arrX));
 
     return add(sumOutY, sumOutX) === 8 && add(sumInX, sumInY) < 8;
+}
+
+function getImageSource(className, option){
+    let result = '';
+    switch(className){
+        case 'northbound-outer': case 'northbound-inner':
+            if(option === 0){
+                result = 'close.png';
+            } else if(option === 1){
+                result = 'northbound-straight.png';
+            } else if(option === 2){
+                result = 'northbound-straight-right.png';
+            } else if(option === 3){
+                result = 'northbound-straight-left.png';
+            } else if(option === 4){
+                result = 'northbound-right';
+            } else if(option === 5){
+                result = 'northbound-left';
+            }
+            return result;
+            break;
+        // case 'northbound-inner':
+        //     arrY[1] = ans;
+        //     break;
+        case 'northbound-leave-outer':
+            //arrY[2] = ans;
+            break;
+        case 'northbound-leave-inner':
+            //arrY[3] = ans;
+            break;
+        case 'southbound-outer':
+            //a/rrY[4] = ans;
+            break;
+        case 'southbound-inner':
+            //arrY[5] = ans;
+            break;
+        case 'southbound-leave-outer':
+            //arrY[6] = ans;
+            //break;
+        case 'southbound-leave-inner':
+            console.log('southbound-leave-inner');
+            if(option === 0){
+                return 'close.png';
+            } else if(option === 1){
+                return 'southbound-straight.png';
+            }
+
+            break;
+        case 'westbound-outer':
+            //arrX[0] = ans;
+            break;
+        case 'westbound-inner':
+            //arrX[1] = ans;
+            break;
+        case 'westbound-leave-outer':
+            //arrX[2] = ans;
+            break;
+        case 'westbound-leave-inner':
+
+            break;
+        case 'eastbound-outer':
+            //arrX[4] = ans;
+            break;
+        case 'eastbound-inner':
+            //arrX[5] = ans;
+            break;
+        case 'eastbound-leave-outer':
+            //arrX[6] = ans;
+            break;
+        case 'eastbound-leave-inner':
+            //arrX[7] = ans;
+            break;
+        default:
+            break;
+    }
+    return result;
 }
 
 
