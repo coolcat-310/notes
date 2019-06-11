@@ -1,11 +1,21 @@
+let arrOfObj = [];
+console.log(arrOfObj);
+
 function check(arrform){
     console.log('submit all forms');
+    let nameEW;
+    let nameNS;
     $("#warning-messages").empty();
     let arrX = [-1, -1, -1, -1, -1, -1, -1, -1];
     let arrY = [-1, -1, -1, -1, -1, -1, -1, -1];
     for(let i=0; i< arrform.length; i++) {
         const str = arrform[i]['className'];
         const form = arrform[i]['form'];
+        if(str === 'street'){
+            nameEW = $("#east-west-street").val();
+            nameNS = $("#north-south-street").val();
+        }
+
         let ans = $(`input[name=${str}]:checked`, form).val();
         ans = parseInt(ans);
         switch(str){
@@ -61,17 +71,10 @@ function check(arrform){
                 break;
         }
     }
-    console.log('ArrX');
-    console.log(arrX);
-
-    console.log('ArrY');
-    console.log(arrY);
-
-    console.log(isValid(arrX, arrY));
     const obj = isValid(arrX, arrY);
     if(obj.count === 0){
-        console.log('no errors');
-        $('#submitbtn').prop("disabled", false);
+        console.log('ready to submit');
+        saveIntersection(nameEW, nameNS, arrX, arrY);
     }else{
         for(let prop in obj){
             if(obj[prop] && prop !== 'count'){
@@ -84,6 +87,13 @@ function check(arrform){
         }
 
     }
+}
+
+function saveIntersection(name1, name2, arrX, arrY){
+    let name = name1 + '-' + name2;
+    let newIntersction = new Intersection(name, arrX, arrY, true);
+    arrOfObj.push(newIntersction);
+    console.log(arrOfObj);
 }
 
 function displayResult(form, className, id='none'){
@@ -109,18 +119,14 @@ function displayResult(form, className, id='none'){
                 $("#"+id).attr({"src": "northbound-left.png"});
             }
             break;
-        case 'northbound-leave-outer':
-        case 'northbound-leave-inner':
-            console.log('northbound-leave-inner/outer');
+        case 'northbound-leave-outer': case 'northbound-leave-inner':
             if(option === 0){
                 $("#"+id).attr({"src": "close.png"});
             } else if(option === 1){
                 $("#"+id).attr({"src": "northbound-straight.png"});
             }
             break;
-        case 'southbound-outer':
-        case 'southbound-inner':
-
+        case 'southbound-outer': case 'southbound-inner':
             if(option === 0){
                 $("#"+id).attr({"src": "close.png"});
             } else if(option === 1){
@@ -135,20 +141,14 @@ function displayResult(form, className, id='none'){
                 $("#"+id).attr({"src": "southbound-left.png"});
             }
                 break;
-        case 'southbound-leave-outer':
-        case 'southbound-leave-inner':
-            console.log('southbound-leave-inner/outer');
+        case 'southbound-leave-outer': case 'southbound-leave-inner':
             if(option === 0){
                 $("#"+id).attr({"src": "close.png"});
             } else if(option === 1){
-                //return 'southbound-straight.png';
                 $("#"+id).attr({"src": "southbound-straight.png"});
             }
-
             break;
-        case 'westbound-outer':
-        case 'westbound-inner':
-
+        case 'westbound-outer': case 'westbound-inner':
             if(option === 0){
                 $("#"+id).attr({"src": "close.png"});
             } else if(option === 1){
@@ -164,16 +164,14 @@ function displayResult(form, className, id='none'){
                 $("#"+id).attr({"src": "westbound-left.png"});
             }
             break;
-        case 'westbound-leave-outer':
-        case 'westbound-leave-inner':
+        case 'westbound-leave-outer': case 'westbound-leave-inner':
             if(option === 0){
                 $("#"+id).attr({"src": "close.png"});
             } else if(option === 1){
                 $("#"+id).attr({"src": "westbound-straight.png"});
             }
             break;
-        case 'eastbound-outer':
-        case 'eastbound-inner':
+        case 'eastbound-outer': case 'eastbound-inner':
             if(option === 0){
                 $("#"+id).attr({"src": "close.png"});
             } else if(option === 1){
@@ -189,22 +187,16 @@ function displayResult(form, className, id='none'){
                 $("#"+id).attr({"src": "eastbound-left.png"});
             }
             break;
-        case 'eastbound-leave-outer':
-        case 'eastbound-leave-inner':
-            console.log('eastbound-leave-outer/inner');
+        case 'eastbound-leave-outer': case 'eastbound-leave-inner':
             if(option === 0){
-                console.log('inside close');
                 $("#"+id).attr({"src": "close.png"});
             } else if(option === 1){
-                console.log('inside straight');
                 $("#"+id).attr({"src": "eastbound-straight.png"});
             }
             break;
         default:
             break;
     }
-
-    //$("#image1").attr({"src":source});
 }
 
 function isValid(arrX,arrY){
@@ -308,7 +300,6 @@ function isValid(arrX,arrY){
         warning_messages.LaneX_westbound_error_outer = 'Warning. Westbound Outer Lane is Close.';
         warning_messages.count++;
     }
-
     return warning_messages;
 }
 
@@ -365,81 +356,48 @@ function noOutlet(arrX, arrY){
     return add(sumOutY, sumOutX) === 8 && add(sumInX, sumInY) < 8;
 }
 
-function getImageSource(className, option){
-    let result = '';
-    switch(className){
-        case 'northbound-outer': case 'northbound-inner':
-            if(option === 0){
-                result = 'close.png';
-            } else if(option === 1){
-                result = 'northbound-straight.png';
-            } else if(option === 2){
-                result = 'northbound-straight-right.png';
-            } else if(option === 3){
-                result = 'northbound-straight-left.png';
-            } else if(option === 4){
-                result = 'northbound-right';
-            } else if(option === 5){
-                result = 'northbound-left';
-            }
-            return result;
-            break;
-        // case 'northbound-inner':
-        //     arrY[1] = ans;
-        //     break;
-        case 'northbound-leave-outer':
-            //arrY[2] = ans;
-            break;
-        case 'northbound-leave-inner':
-            //arrY[3] = ans;
-            break;
-        case 'southbound-outer':
-            //a/rrY[4] = ans;
-            break;
-        case 'southbound-inner':
-            //arrY[5] = ans;
-            break;
-        case 'southbound-leave-outer':
-            //arrY[6] = ans;
-            //break;
-        case 'southbound-leave-inner':
-            console.log('southbound-leave-inner');
-            if(option === 0){
-                return 'close.png';
-            } else if(option === 1){
-                return 'southbound-straight.png';
-            }
-
-            break;
-        case 'westbound-outer':
-            //arrX[0] = ans;
-            break;
-        case 'westbound-inner':
-            //arrX[1] = ans;
-            break;
-        case 'westbound-leave-outer':
-            //arrX[2] = ans;
-            break;
-        case 'westbound-leave-inner':
-
-            break;
-        case 'eastbound-outer':
-            //arrX[4] = ans;
-            break;
-        case 'eastbound-inner':
-            //arrX[5] = ans;
-            break;
-        case 'eastbound-leave-outer':
-            //arrX[6] = ans;
-            break;
-        case 'eastbound-leave-inner':
-            //arrX[7] = ans;
-            break;
-        default:
-            break;
+class Intersection{
+    constructor(name, laneX = [0,1,1,1,3,4, 1,1 ], laneY=[1,1,1,1,4,3,1,0], isValid = false, isConfirm = false){
+        this.name = name;
+        this.laneX = laneX;
+        this.laneY = laneY;
+        this.isValid = isValid;
+        this.isConfirm = isConfirm;
     }
-    return result;
-}
 
+    getName(){
+        return this.name;
+    }
+    setName(newName){
+        this.name = newName;
+    }
+    getLaneX(){
+        return this.laneX;
+    }
+    setLaneX(newLanes){
+        this.laneX = newLanes;
+    }
+    getLaneY(){
+        return this.laneY;
+    }
+    setLaneY(newLanes){
+        this.laneY = newLanes;
+    }
+    getisValid(){
+        return this.isValid;
+    }
+    setIsValid(newValid){
+        this.isValid = newValid;
+    }
+    getisConfirm(){
+        return this.isConfirm;
+    }
+    setIsConfirm(newConfirm){
+        this.isConfirm = newConfirm;
+    }
+    toString(){
+        return `Intersection:\n\tName: ${this.name}\n\tLaneX: ${this.laneX}\n\tLaneY: ${this.laneY}\n\tisValid: ${this.isValid}\n\tisConfirm: ${this.isConfirm}`;
+    }
+}
 
 

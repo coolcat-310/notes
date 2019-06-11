@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Sales Dashbaord</title>
+    <!-- plugins:css -->
+    <link rel="stylesheet" href="vendors/iconfonts/mdi/css/materialdesignicons.min.css">// done
+    <link rel="stylesheet" href="vendors/css/vendor.bundle.base.css"> //done
+    <link rel="stylesheet" href="vendors/css/vendor.bundle.addons.css"> //done
+    <!-- endinject -->
+    <!-- plugin css for this page -->
+    <!-- End plugin css for this page -->
+    <!-- inject:css -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- endinject -->
+    <link rel="shortcut icon" href="images/favicon.ico" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.js"></script>
+</head>
+
+<body>
+<div class="container-scroller">
+    <!-- partial:partials/_navbar.html -->
+    <nav class="navbar default-layout col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+        <div class="text-center navbar-brand-wrapper d-flex align-items-top justify-content-center">
+            <a class="navbar-brand brand-logo" href="index.html">
+                <img src="images/logo.png" alt="logo" />
+            </a>
+
+        </div>
+        <div class="navbar-menu-wrapper d-flex align-items-center">
+            <ul class="navbar-nav navbar-nav-left header-links d-none d-md-flex">
+
+            </ul>
+            <ul class="navbar-nav navbar-nav-right">
+                <li class="nav-item dropdown">
+
+                    <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="messageDropdown">
+
+                        <div class="dropdown-divider"></div>
+
+
+                        <div class="dropdown-divider"></div>
+
+                    </div>
+                </li>
+
+                <li class="nav-item dropdown d-none d-xl-inline-block">
+
+                    <a class="navbar-brand" href="/mypacsci/home.php" style="color: #F2F8F9;">Home</a>
+                    <a class="navbar-brand" href="/forms/signout.php" style="color: #F2F8F9">Logout</a>
+                </li>
+            </ul>
+            <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
+                <span class="mdi mdi-menu"></span>
+            </button>
+        </div>
+    </nav>
+    <!-- partial -->
+    <div class="container-fluid page-body-wrapper">
+        <!-- partial:partials/_sidebar.html -->
+        <nav class="sidebar sidebar-offcanvas" id="sidebar">
+            <ul class="nav">
+                <li class="nav-item nav-profile">
+                    <div class="nav-link">
+                        <div class="user-wrapper">
+
+                        </div>
+                </li>
+                <li class="nav-item  active">
+                    <a class="nav-link" href="index.php">
+                        <i class="menu-icon mdi mdi-television"></i>
+                        <span class="menu-title">Dashboard</span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" >
+                        <i class="menu-icon mdi mdi-chart-line"></i>
+                        <span class="menu-title">Annual Revenue</span>
+
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/summary/dashboard/sale2018.php">
+                        <i class="menu-icon mdi mdi-table" style="margin-left: 20px"></i>
+                        <span class="menu-title">2018</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/summary/dashboard/sale2017.php">
+                        <i class="menu-icon mdi mdi-table" style="margin-left: 20px"></i>
+                        <span class="menu-title">2017</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/summary/dashboard/sale2016.php">
+                        <i class="menu-icon mdi mdi-table" style="margin-left: 20px"></i>
+                        <span class="menu-title">2016</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/summary/dashboard/sale2015.php">
+                        <i class="menu-icon mdi mdi-table" style="margin-left: 20px"></i>
+                        <span class="menu-title">2015</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link">
+                        <i class="menu-icon mdi mdi-content-copy"></i>
+                        <span class="menu-title">Products</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/summary/dashboard/mrp.php">
+                        <i class="menu-icon mdi mdi-table" style="margin-left: 20px"></i>
+                        <span class="menu-title">2019</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/summary/dashboard/mrp2018.php">
+                        <i class="menu-icon mdi mdi-table" style="margin-left: 20px"></i>
+                        <span class="menu-title">2018</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <!-- partial -->
+        <div class="main-panel">
+            <div class="content-wrapper">
+                <div class="jumbotron" style="background: white">
+                    <h1 class="display-4">Annual Revenue</h1>
+                    <p class="lead">To view Annual Revenue click a given year.</p>
+                    <hr class="my-4">
+                    <p>2009 sales records are being consolidated and soon be display on cockpit.</p>
+
+                </div>
+                <div class="row">
+                    <div class="col-md-12 grid-margin">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row d-none d-sm-flex mb-4">
+                                    <div class="col-5"></div>
+                                    <div class="col-5">
+                                        <h5 class="text-primary">Annual Revenue</h5>
+
+                                    </div>
+                                    <div class="col-2"></div>
+                                </div>
+                                <div class="chart-container">
+                                    <canvas id="annual" width="undefined" height="undefined"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <footer class="footer">
+                <div class="container-fluid clearfix">
+            <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Meggitt @ 2019
+
+            </span>
+                </div>
+            </footer>
+            <!-- partial -->
+        </div>
+        <!-- main-panel ends -->
+    </div>
+    <!-- page-body-wrapper ends -->
+</div>
+<!-- container-scroller -->
+<script>
+    var annualRevenue = document.getElementById('annual');
+    let objProducts = generateChart("Revenue");
+    var annualChart = new Chart(annualRevenue, objProducts);
+
+    function generateChart(companyName){
+        let obj = {
+            type: 'line',
+            data: {
+                labels: ["2015", "2016", "2017", "2018"],
+                datasets: [{
+                    label: companyName,
+                    data: [141152234, 153773520, 148745330, 151578407],
+                    fill: false,
+                    borderColor: "rgb(75, 192, 192)",
+                    lineTension: 0.2
+                }]
+            },
+            options:{
+
+                scales: {
+                    yAxes: [{
+                        scaleLabel: {
+                            display: true,
+                            labelString: "Dollar (US)"
+                        },
+                        ticks:{
+                            userCallback: function(value, index, values) {
+                                // Convert the number to a string and splite the string every 3 charaters from the end
+                                value = value.toString();
+                                value = value.split(/(?=(?:...)*$)/);
+                                value = value.join(',');
+                                return value;
+                            }
+                        }
+                    }],
+                    xAxes: [{
+                        scaleLabel: {
+                            display: true,
+                            labelString: "Year"
+                        },
+
+                    }],
+
+                },
+                tooltips: {
+                    mode: 'label',
+                    label: 'mylabel',
+                    callbacks: {
+                        label: function(tooltipItem, data) {
+                            let num = tooltipItem.yLabel;
+                            num = Math.round(num * 100)/100;
+                            return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                        },
+                    },
+                },
+            }
+        }
+        return obj;
+    }
+</script>
+
+</body>
+
+</html>

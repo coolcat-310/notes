@@ -13,7 +13,8 @@
 </head>
 <body>
 <div class="container" id="warning-messages"></div>
-    <div class="container crossing">
+<div class="container" id="success-messages"></div>
+    <div class="container crossing" style="margin-left: 50px">
         <div class="row ">
             <div class="col col-lg-2"></div>
             <div class="col col-lg-1">
@@ -90,25 +91,52 @@
     </div>
 
     <div class="container">
-        <button  type="button" class="btn btn-warning" name="validate" onclick="check([
-            {'className':'northbound-inner', 'form': form1},
-            {'className':'northbound-outer', 'form': form2},
-            {'className': 'southbound-outer', 'form': form3},
-            {'className': 'southbound-inner', 'form': form4},
-            {'className': 'westbound-inner', 'form': form5},
-            {'className': 'westbound-outer', 'form': form6},
-            {'className': 'eastbound-inner', 'form': form7},
-            {'className': 'eastbound-outer', 'form': form8},
-            {'className': 'eastbound-leave-outer', 'form': form9},
-            {'className': 'eastbound-leave-inner', 'form': form10},
-            {'className': 'westbound-leave-outer', 'form': form11},
-            {'className': 'westbound-leave-inner', 'form': form12},
-            {'className': 'northbound-leave-inner', 'form': form13},
-            {'className': 'northbound-leave-outer', 'form': form14},
-            {'className': 'southbound-leave-outer', 'form': form15},
-            {'className': 'southbound-leave-inner', 'form': form16}])">Validate</button>
+        <form id="street">
+            <div class="row">
+                <div class="col col-lg-1"></div>
+                <div class="col col-lg-6">
+                <div class="form-group">
+                    <label for="east-west-street">East-West Street Name</label>
+                    <input type="text" class="form-control" id="east-west-street" placeholder="street name" required>
+                </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col col-lg-1"></div>
+                <div class="col col-lg-6">
+                    <div class="form-group">
+                        <label for="north-south-street">North-South Street Name</label>
+                        <input type="text" class="form-control" id="north-south-street" placeholder="street name" required>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col col-lg-5"></div>
+                <div class="col col-lg-1" >
+                    <button  type="button" class="btn btn-warning" name="validate" onclick="check([
+                    {'className':'northbound-inner', 'form': form1},
+                    {'className':'northbound-outer', 'form': form2},
+                    {'className': 'southbound-outer', 'form': form3},
+                    {'className': 'southbound-inner', 'form': form4},
+                    {'className': 'westbound-inner', 'form': form5},
+                    {'className': 'westbound-outer', 'form': form6},
+                    {'className': 'eastbound-inner', 'form': form7},
+                    {'className': 'eastbound-outer', 'form': form8},
+                    {'className': 'eastbound-leave-outer', 'form': form9},
+                    {'className': 'eastbound-leave-inner', 'form': form10},
+                    {'className': 'westbound-leave-outer', 'form': form11},
+                    {'className': 'westbound-leave-inner', 'form': form12},
+                    {'className': 'northbound-leave-inner', 'form': form13},
+                    {'className': 'northbound-leave-outer', 'form': form14},
+                    {'className': 'southbound-leave-outer', 'form': form15},
+                    {'className': 'southbound-leave-inner', 'form': form16},
+                    {'className': 'street', 'form': street}])"
+                    style="margin-left: 120%">Validate</button>
+                </div>
+            </div>
+        </form>
 
-        <button id="submitbtn" type="button" class="btn btn-primary" name="submit" onclick="submit()" disabled>Submit</button>
+
     </div>
 <!--<img src="intersection2.png">-->
 
