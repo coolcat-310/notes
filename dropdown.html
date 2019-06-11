@@ -6,12 +6,76 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
     <title>Hello, world!</title>
 </head>
 <body>
-<img src="intersection2.png">
+    <div class="container crossing">
+        <div class="row ">
+            <div class="col col-lg-2"></div>
+            <div class="col col-lg-1">
+                <input type="image" src="southbound-straight-right.png" name="saveForm" class="btTxt submit " data-toggle="modal" data-target="#southbound-enter-outer" id="image3" width="42" height="42" style="margin-left: 55%; margin-top: 250%"/>
+            </div>
+            <div class="col col-lg-1">
+                <input type="image" src="southbound-straight-left.png" name="saveForm" class="btTxt submit" data-toggle="modal" data-target="#southbound-enter-inner" id="image4" width="42" height="42" style="margin-left: 65%; margin-top: 250%" />
+            </div>
+            <div class="col col-lg-1">
+                <input type="image" src="northbound-straight.png" name="saveForm" class="btTxt submit" data-toggle="modal" data-target="#northbound-leave-inner" id="image13" width="42" height="42" style="margin-left: 75%;  margin-top: 250%"/>
+            </div>
+            <div class="col col-lg-1">
+                <input type="image" src="northbound-straight.png" name="saveForm" class="btTxt submit" data-toggle="modal" data-target="#northbound-leave-outer" id="image14" width="42" height="42" style="margin-left: 85%;  margin-top: 250%"/>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col col-xl-1"></div>
+            <div class="col col-lg-1">
+                <input type="image" src="westbound-straight.png" name="saveForm" class="btTxt submit" data-toggle="modal" data-target="#westbound-leave-outer" id="image11" width="42" height="42" style="margin-left: 100%;  margin-top: 40%"/>
+            </div>
+            <div class="col col-lg-4"></div>
+            <div class="col col-lg-1">
+                <input type="image" src="westbound-straight-right.png" name="saveForm" class="btTxt submit" data-toggle="modal" data-target="#westbound-enter-outer" id="image6" width="42" height="42" style="margin-left: 30%;  margin-top: 40%"/>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col col-xl-1"></div>
+            <div class="col col-lg-1">
+                <input type="image" src="westbound-straight.png" name="saveForm" class="btTxt submit" data-toggle="modal" data-target="#westbound-leave-inner" id="image12" width="42" height="42" style="margin-left: 100%;  margin-top: 80%"/>
+            </div>
+            <div class="col col-lg-4"></div>
+            <div class="col col-lg-1">
+                <input type="image" src="westbound-straight-left.png" name="saveForm" class="btTxt submit" data-toggle="modal" data-target="#westbound-enter-inner" id="image5" width="42" height="42" style="margin-left: 30%;  margin-top: 80%"/>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col col-xl-1"></div>
+            <div class="col col-lg-1">
+                <input type="image" src="eastbound-straight-left.png" name="saveForm" class="btTxt submit" data-toggle="modal" data-target="#eastbound-enter-inner" id="image7" width="42" height="42" style="margin-left: 100%;  margin-top: 80%"/>
+            </div>
+            <div class="col col-lg-4"></div>
+            <div class="col col-lg-1">
+                <input type="image" src="eastbound-straight.png" name="saveForm" class="btTxt submit" data-toggle="modal" data-target="#eastbound-leave-inner" id="image10" width="42" height="42" style="margin-left: 40%;  margin-top: 80%"/>
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col col-xl-1"></div>
+            <div class="col col-lg-1">
+                <input type="image" src="eastbound-straight-right.png" name="saveForm" class="btTxt submit" data-toggle="modal" data-target="#eastbound-enter-outer" id="image8" width="48" height="42" style="margin-left: 100%;  margin-top: 80%"/>
+            </div>
+            <div class="col col-lg-4"></div>
+            <div class="col col-lg-1">
+                <input type="image" src="eastbound-straight.png" name="saveForm" class="btTxt submit" data-toggle="modal" data-target="#eastbound-leave-outer" id="image9" width="42" height="42" style="margin-left: 40%;  margin-top: 80%"/>
+            </div>
+
+        </div>
+        <div class="row">
+
+        </div>
+
+    </div>
+<!--<img src="intersection2.png">-->
 
 <!-- Button trigger modal -->
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#northbound-enter-inner">Northbound-enter-inner</button>
@@ -21,40 +85,40 @@
 <input type="image" src="northbound-straight-right.png" name="saveForm" class="btTxt submit" data-toggle="modal" data-target="#northbound-enter-outer" id="image2" width="42" height="42"/>
 
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#southbound-enter-outer">Southbound-enter-outer</button>
-<input type="image" src="southbound-straight-right.png" name="saveForm" class="btTxt submit" data-toggle="modal" data-target="#southbound-enter-outer" id="image3" width="42" height="42"/>
+<!--<input type="image" src="southbound-straight-right.png" name="saveForm" class="btTxt submit" data-toggle="modal" data-target="#southbound-enter-outer" id="image3" width="42" height="42"/>-->
 
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#southbound-enter-inner">Southbound-enter-inner</button>
-<input type="image" src="southbound-straight-left.png" name="saveForm" class="btTxt submit" data-toggle="modal" data-target="#southbound-enter-inner" id="image4" width="42" height="42"/>
+<!--<input type="image" src="southbound-straight-left.png" name="saveForm" class="btTxt submit" data-toggle="modal" data-target="#southbound-enter-inner" id="image4" width="42" height="42"/>-->
 
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#westbound-enter-inner">Westbound-enter-inner</button>
-<input type="image" src="westbound-straight-left.png" name="saveForm" class="btTxt submit" data-toggle="modal" data-target="#westbound-enter-inner" id="image5" width="42" height="42"/>
+<!--<input type="image" src="westbound-straight-left.png" name="saveForm" class="btTxt submit" data-toggle="modal" data-target="#westbound-enter-inner" id="image5" width="42" height="42"/>-->
 
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#westbound-enter-outer">Westbound-enter-outer</button>
-<input type="image" src="westbound-straight-right.png" name="saveForm" class="btTxt submit" data-toggle="modal" data-target="#westbound-enter-outer" id="image6" width="42" height="42"/>
+<!--<input type="image" src="westbound-straight-right.png" name="saveForm" class="btTxt submit" data-toggle="modal" data-target="#westbound-enter-outer" id="image6" width="42" height="42"/>-->
 
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#eastbound-enter-inner">Eastbound-enter-inner</button>
-<input type="image" src="eastbound-straight-left.png" name="saveForm" class="btTxt submit" data-toggle="modal" data-target="#eastbound-enter-inner" id="image7" width="42" height="42"/>
+<!--<input type="image" src="eastbound-straight-left.png" name="saveForm" class="btTxt submit" data-toggle="modal" data-target="#eastbound-enter-inner" id="image7" width="42" height="42"/>-->
 
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#eastbound-enter-outer">Eastbound-enter-outer</button>
-<input type="image" src="eastbound-straight-right.png" name="saveForm" class="btTxt submit" data-toggle="modal" data-target="#eastbound-enter-outer" id="image8" width="42" height="42"/>
+<!--<input type="image" src="eastbound-straight-right.png" name="saveForm" class="btTxt submit" data-toggle="modal" data-target="#eastbound-enter-outer" id="image8" width="42" height="42"/>-->
 
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#eastbound-leave-outer">Eastbound-leave-outer</button>
-<input type="image" src="eastbound-straight.png" name="saveForm" class="btTxt submit" data-toggle="modal" data-target="#eastbound-leave-outer" id="image9" width="42" height="42"/>
+<!--<input type="image" src="eastbound-straight.png" name="saveForm" class="btTxt submit" data-toggle="modal" data-target="#eastbound-leave-outer" id="image9" width="42" height="42"/>-->
 
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#eastbound-leave-inner">Eastbound-leave-outer</button>
-<input type="image" src="eastbound-straight.png" name="saveForm" class="btTxt submit" data-toggle="modal" data-target="#eastbound-leave-inner" id="image10" width="42" height="42"/>
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#eastbound-leave-inner">Eastbound-leave-inner</button>
+<!--<input type="image" src="eastbound-straight.png" name="saveForm" class="btTxt submit" data-toggle="modal" data-target="#eastbound-leave-inner" id="image10" width="42" height="42"/>-->
 
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#westbound-leave-outer">Westbound-leave-outer</button>
-<input type="image" src="westbound-straight.png" name="saveForm" class="btTxt submit" data-toggle="modal" data-target="#westbound-leave-outer" id="image11" width="42" height="42"/>
+<!--<input type="image" src="westbound-straight.png" name="saveForm" class="btTxt submit" data-toggle="modal" data-target="#westbound-leave-outer" id="image11" width="42" height="42"/>-->
 
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#westbound-leave-inner">Westbound-leave-inner</button>
-<input type="image" src="westbound-straight.png" name="saveForm" class="btTxt submit" data-toggle="modal" data-target="#westbound-leave-inner" id="image12" width="42" height="42"/>
+<!--<input type="image" src="westbound-straight.png" name="saveForm" class="btTxt submit" data-toggle="modal" data-target="#westbound-leave-inner" id="image12" width="42" height="42"/>-->
 
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#northbound-leave-inner">Northbound-leave-inner</button>
-<input type="image" src="northbound-straight.png" name="saveForm" class="btTxt submit" data-toggle="modal" data-target="#northbound-leave-inner" id="image13" width="42" height="42"/>
+<!--<input type="image" src="northbound-straight.png" name="saveForm" class="btTxt submit" data-toggle="modal" data-target="#northbound-leave-inner" id="image13" width="42" height="42"/>-->
 
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#northbound-leave-outer">Northbound-leave-outer</button>
-<input type="image" src="northbound-straight.png" name="saveForm" class="btTxt submit" data-toggle="modal" data-target="#northbound-leave-outer" id="image14" width="42" height="42"/>
+<!--<input type="image" src="northbound-straight.png" name="saveForm" class="btTxt submit" data-toggle="modal" data-target="#northbound-leave-outer" id="image14" width="42" height="42"/>-->
 
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#southbound-leave-outer">Southbound-leave-outer</button>
 <input type="image" src="southbound-straight.png" name="saveForm" class="btTxt submit" data-toggle="modal" data-target="#southbound-leave-outer" id="image15" width="42" height="42"/>
