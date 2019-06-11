@@ -1,5 +1,6 @@
 function check(arrform){
     console.log('submit all forms');
+    $("#warning-messages").empty();
     let arrX = [-1, -1, -1, -1, -1, -1, -1, -1];
     let arrY = [-1, -1, -1, -1, -1, -1, -1, -1];
     for(let i=0; i< arrform.length; i++) {
@@ -67,6 +68,22 @@ function check(arrform){
     console.log(arrY);
 
     console.log(isValid(arrX, arrY));
+    const obj = isValid(arrX, arrY);
+    if(obj.count === 0){
+        console.log('no errors');
+        $('#submitbtn').prop("disabled", false);
+    }else{
+        for(let prop in obj){
+            if(obj[prop] && prop !== 'count'){
+                console.log(obj[prop]);
+                $('#warning-messages').append('<div class="alert alert-warning" role="alert">\n' +
+                    obj[prop] +
+                    '</div>');
+            }
+
+        }
+
+    }
 }
 
 function displayResult(form, className, id='none'){
