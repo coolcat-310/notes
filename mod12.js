@@ -1,4 +1,4 @@
-const population_model = population =>{
+const population_model = population => {
     // Helper functions
     const compose = (...fns) => x => fns.reduceRight((v, f) => f(v), x);
     const mult = a => b => a * b;
@@ -40,7 +40,7 @@ const population_model = population =>{
     };
 
     // compose both inner functions into a first class function
-    const populationDensity = compose(recovery, infection);
+    const populationDensity = compose( infection,recovery,);
 
     // initialize obj with the given population size
     let population_groups = {
@@ -61,4 +61,5 @@ const population_model = population =>{
 };
 
 population_model(200);
+
 
